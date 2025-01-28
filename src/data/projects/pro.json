@@ -1,0 +1,27 @@
+[
+    {
+      "name": "Portfolio Website",
+      "link": "https://myportfolio.com",
+      "date": "Jan, 2025",
+      "picture": "/images/port.jpg",
+      "description": "A personal portfolio website to showcase my work, skills, and projects.",
+      "tags": ["React", "TypeScript", "CSS", "Firebase"]
+    },
+    {
+      "name": "E-Commerce Platform",
+      "link": "https://myecommerce.com",
+      "date": "Nov, 2024",
+      "picture": "/images/ecom.jpg",
+      "description": "Developed a scalable e-commerce platform featuring a product catalog, shopping cart, and payment integration.",
+      "tags": ["Node.js", "Express", "MongoDB", "React", "Stripe"]
+    },
+    {
+      "name": "Weather App",
+      "link": "https://weatherapp.com",
+      "date": "Aug, 2024",
+      "picture": "/images/Waetherapp.jpg",
+      "description": "A web app that fetches and displays real-time weather data using a public API.",
+      "tags": ["HTML", "CSS", "JavaScript", "OpenWeather API"]
+    }
+  ]
+  

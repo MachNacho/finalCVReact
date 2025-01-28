@@ -1,0 +1,28 @@
+[
+  {
+    "degree": "Bachelor of Science in Information Technology (Software engineering)",
+    "institution": "Eduvos",
+    "startDate": "Feb, 2022",
+    "endDate": "Dec, 2024",
+    "grade": "3.9/4.0 GPA",
+    "details": [
+      "Specialized in Software Development",
+      "Completed coursework in Algorithms, Principles, and Databases",
+      "Participated team project to create a mobile app for campus quiz"
+    ],
+    "imageSrc": "/images/Eduvos.png"
+  },
+  {
+    "degree": "Matric",
+    "institution": "Teneo",
+    "startDate": "Jan, 2017",
+    "endDate": "Dec, 2021",
+    "grade": "Graduated with Bacholers",
+    "details": [
+      "Member of the 3D printing",
+      "Gold national computer olympiad",
+      "Top athlete"
+    ],
+    "imageSrc": "/images/Teneo.png"
+  }
+]
