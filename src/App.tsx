@@ -1,9 +1,7 @@
 import "./App.css";
 import { createTheme, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { NotFoundTitle } from "./Components/FourOFour/NotFoundTitle";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HeaderSimple } from "./Components/HeaderSimple/HeaderSimple";
 import ContactMe from "./Pages/ContactMe";
 import Details from "./Pages/Details";
 import Hobbies from "./Pages/Hobbies";
