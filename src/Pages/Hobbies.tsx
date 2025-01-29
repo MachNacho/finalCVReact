@@ -7,7 +7,7 @@ export default function () {
   return (
     <>
       <HeaderSimple />
-      <BadgeCard />
+      <h1>Hobbies</h1>
       <HobbiesList />
       <FooterCentered />
     </>

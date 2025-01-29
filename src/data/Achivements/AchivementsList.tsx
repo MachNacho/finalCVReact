@@ -3,7 +3,17 @@
   This component allows for fetching and displaying of json file to fill details such as hobbies, experince .... Without the need to edit the react files  
   */
 }
-
+import {
+  ActionIcon,
+  Badge,
+  Button,
+  Card,
+  Grid,
+  Group,
+  Image,
+  Text,
+} from "@mantine/core";
+import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import React from "react";
 import data from "./ACH.json";
@@ -20,20 +30,37 @@ const AchivementsList: React.FC = () => {
   const achievments: Achievement[] = data;
 
   return (
-    <>
-      <h1 className="DetailTopicHead">Achivments:</h1>
-      <div className="Container">
+    <Grid>
         {achievments.map((ach, index) => (
-          <div key={index} className="DetBox">
-            <h3 className="subHeadingDetails">{ach.name}</h3>
-            <p>
-              Acquired: {ach.dateAcquired} <br />
-              Location: {ach.location}
-            </p>
-          </div>
+          <Grid.Col span={3}>
+          <Card
+            withBorder
+            radius="md"
+            p="md"
+            className={classes.card}
+            key={index}
+          >
+            <Card.Section className={classes.section}>
+            <Text fz="lg" fw={500}>
+                  {ach.name}
+                </Text>
+            </Card.Section>
+            <Card.Section className={classes.section} mt="md">
+              <Group justify="apart">
+                <Text fz="lg" fw={500}>
+                  {ach.location}
+                </Text>
+              </Group>
+            </Card.Section>
+            <Card.Section className={classes.section}>
+              <Text fz="sm" mt="xs">
+                {ach.dateAcquired}
+              </Text>
+            </Card.Section>
+          </Card>
+        </Grid.Col>
         ))}
-      </div>
-    </>
+    </Grid>
   );
 };
 

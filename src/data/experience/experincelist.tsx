@@ -3,7 +3,17 @@
   This component allows for fetching and displaying of json file to fill details such as hobbies, experince .... Without the need to edit the react files  
   */
 }
-
+import {
+  ActionIcon,
+  Badge,
+  Button,
+  Card,
+  Grid,
+  Group,
+  Image,
+  Text,
+} from "@mantine/core";
+import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import data from "./exp.json";
 
@@ -22,26 +32,47 @@ const ExperienceList: React.FC = () => {
   const experiences: Experience[] = data;
 
   return (
-    <>
-      <h1 className="DetailTopicHead">Experience:</h1>
-      <div className="Container">
-        {experiences.map((exp, index) => (
-          <div key={index} className="DetBox">
-            <h2 className="subHeadingDetails">{exp.role}</h2>
-            <p>{exp.organisation}</p>
-            <p>
-              {exp.startDate} - {exp.endDate}
-            </p>
-            <ul>
-              {exp.experiences.map((task, i) => (
-                <li key={i}>{task}</li>
-              ))}
-            </ul>
-            <Iconpic value={exp.imageSrc} />
-          </div>
-        ))}
-      </div>
-    </>
+    <Grid  align="flex-start">
+      {experiences.map((exp, index) => (
+        <Grid.Col span={3}>
+          <Card
+            withBorder
+            radius="md"
+            p="md"
+            className={classes.card}
+            key={index}
+          >
+            <Card.Section className={classes.section}>
+              <Image
+                src={exp.imageSrc}
+                alt={exp.role}
+                h="auto"
+                fit="contain"
+              />
+            </Card.Section>
+
+            <Card.Section className={classes.section} mt="md">
+              <Group justify="apart">
+                <Text fz="lg" fw={500}>
+                  {exp.role}
+                </Text>
+                <Text fz="lg" fw={500}>
+                  {exp.organisation}
+                </Text>
+              </Group>
+              <Text fz="sm" mt="xs">
+                {exp.experiences}
+              </Text>
+            </Card.Section>
+            <Card.Section className={classes.section}>
+              <Text fz="sm" mt="xs">
+                {exp.startDate} - {exp.endDate}
+              </Text>
+            </Card.Section>
+          </Card>
+        </Grid.Col>
+      ))}
+    </Grid>
   );
 };
 
