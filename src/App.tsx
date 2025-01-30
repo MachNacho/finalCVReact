@@ -1,12 +1,14 @@
 import "./App.css";
 import { createTheme, MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import ContactMe from "./Pages/ContactMe";
 import Details from "./Pages/Details";
 import Hobbies from "./Pages/Hobbies";
 import Home from "./Pages/Home";
 import NoPage from "./Pages/NoPage";
+import { HeaderSimple } from "./Components/HeaderSimple/HeaderSimple";
+import { FooterCentered } from "./Components/FooterCentered/FooterCentered";
 
 function App() {
   const theme = createTheme({
@@ -14,16 +16,16 @@ function App() {
   });
   return (
     <MantineProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/" element={<Home />} />
-          <Route path="ContactMe" element={<ContactMe />} />
-          <Route path="Hobbies" element={<Hobbies />} />
-          <Route path="Details" element={<Details />} />
-          <Route path="*" element={<NoPage />} />
-        </Routes>
-      </BrowserRouter>
+      <HeaderSimple />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="ContactMe" element={<ContactMe />} />
+        <Route path="Hobbies" element={<Hobbies />} />
+        <Route path="Details" element={<Details />} />
+        <Route path="*" element={<NoPage />} />
+      </Routes>
+      <FooterCentered />
     </MantineProvider>
   );
 }

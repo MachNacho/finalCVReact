@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Burger, Container, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { MantineLogo } from '@mantinex/mantine-logo';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classes from './HeaderSimple.module.css';
 
 const links = [
@@ -14,7 +14,12 @@ const links = [
 
 export function HeaderSimple() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const location = useLocation();
+  const [active, setActive] = useState(location.pathname);
+
+  useEffect(() => {
+    setActive(location.pathname);
+  }, [location.pathname]);
 
   const items = links.map((link) => (
     <Link
@@ -22,8 +27,7 @@ export function HeaderSimple() {
       to={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={() => {
         setActive(link.link);
       }}
     >
