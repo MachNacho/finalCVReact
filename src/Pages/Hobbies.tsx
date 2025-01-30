@@ -5,7 +5,6 @@ export default function () {
     <>
       <h1>Hobbies</h1>
       <HobbiesList />
-
     </>
   );
 }

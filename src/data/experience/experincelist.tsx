@@ -32,7 +32,7 @@ const ExperienceList: React.FC = () => {
   const experiences: Experience[] = data;
 
   return (
-    <Grid  align="flex-start">
+    <Grid align="flex-start">
       {experiences.map((exp, index) => (
         <Grid.Col span={3}>
           <Card
@@ -43,12 +43,7 @@ const ExperienceList: React.FC = () => {
             key={index}
           >
             <Card.Section className={classes.section}>
-              <Image
-                src={exp.imageSrc}
-                alt={exp.role}
-                h="auto"
-                fit="contain"
-              />
+              <Image src={exp.imageSrc} alt={exp.role} h="auto" fit="contain" />
             </Card.Section>
 
             <Card.Section className={classes.section} mt="md">

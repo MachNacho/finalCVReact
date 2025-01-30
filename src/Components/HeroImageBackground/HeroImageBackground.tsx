@@ -1,5 +1,4 @@
-import cx from 'clsx';
-import { Button, Container, Overlay, Text, Title } from '@mantine/core';
+import { Container, Overlay, Text, Title } from '@mantine/core';
 import classes from './HeroImageBackground.module.css';
 
 export function HeroImageBackground() {
@@ -9,16 +8,15 @@ export function HeroImageBackground() {
 
       <div className={classes.inner}>
         <Title className={classes.title}>
-          Automated AI code reviews for{' '}
+          Welcome to my website{' '}
           <Text component="span" inherit className={classes.highlight}>
-            any stack
+            
           </Text>
         </Title>
 
         <Container size={640}>
           <Text size="lg" className={classes.description}>
-            Build more reliable software with AI companion. AI is also trained to detect lazy
-            developers who do nothing and just complain on Twitter.
+           Hey my name is Asiphile Mokweni
           </Text>
         </Container>
 
