@@ -3,37 +3,18 @@
   This component allows for fetching and displaying of json file to fill details such as hobbies, experince .... Without the need to edit the react files  
   */
 }
-import {
-  ActionIcon,
-  Badge,
-  Button,
-  Card,
-  Grid,
-  Group,
-  Image,
-  Text,
-} from "@mantine/core";
+import { Card, Grid, Group, Image, Text } from "@mantine/core";
 import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
-import data from "./exp.json";
-
-//Interface to validate JSON objects
-interface Experience {
-  role: string;
-  organisation: string;
-  startDate: string;
-  endDate: string;
-  experiences: string[];
-  imageSrc: string;
-}
+import { useFetch } from "@mantine/hooks";
+import { Experience } from "../../Interfaces/Experince";
 
 // function to return each object in JSON with formating to display on page
 const ExperienceList: React.FC = () => {
-  const experiences: Experience[] = data;
-
+  const { data, loading, error } = useFetch<Experience[]>(""); //FIXME fix url
   return (
     <Grid align="flex-start">
-      {experiences.map((exp, index) => (
+      {data?.map((exp, index) => (
         <Grid.Col span={3}>
           <Card
             withBorder
