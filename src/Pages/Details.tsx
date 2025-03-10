@@ -12,12 +12,6 @@ export default function () {
       <Grid.Col span={11}>
         <h1>Experience</h1>
         <ExperienceList />
-        <h1>Education</h1>
-        <EducationList />
-        <h1>Achivements</h1>
-        <AchivementsList />
-        <h1>Project</h1>
-        <ProjectList />
       </Grid.Col>
     </Grid>
   );

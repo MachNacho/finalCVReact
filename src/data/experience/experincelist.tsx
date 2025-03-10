@@ -8,14 +8,17 @@ import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import { useFetch } from "@mantine/hooks";
 import { Experience } from "../../Interfaces/Experince";
+import { Hobby } from "../../Interfaces/Hobby";
 
 // function to return each object in JSON with formating to display on page
 const ExperienceList: React.FC = () => {
-  const { data, loading, error } = useFetch<Experience[]>(""); //FIXME fix url
+  const { data, loading, error } = useFetch<Experience[]>(
+    "https://localhost:7186/api/hobby"
+  );
   return (
     <Grid align="flex-start">
       {data?.map((exp, index) => (
-        <Grid.Col span={3}>
+        <Grid.Col span={3} key={exp.id}>
           <Card
             withBorder
             radius="md"
@@ -24,25 +27,30 @@ const ExperienceList: React.FC = () => {
             key={index}
           >
             <Card.Section className={classes.section}>
-              <Image src={exp.imageSrc} alt={exp.role} h="auto" fit="contain" />
+              <Image
+                src={exp.imageSrc}
+                alt={exp.imageSrc}
+                h="auto"
+                fit="contain"
+              />
             </Card.Section>
 
             <Card.Section className={classes.section} mt="md">
               <Group justify="apart">
                 <Text fz="lg" fw={500}>
-                  {exp.role}
+                  {exp.imageSrc}
                 </Text>
                 <Text fz="lg" fw={500}>
-                  {exp.organisation}
+                  {exp.imageSrc}
                 </Text>
               </Group>
               <Text fz="sm" mt="xs">
-                {exp.experiences}
+                {exp.imageSrc}
               </Text>
             </Card.Section>
             <Card.Section className={classes.section}>
               <Text fz="sm" mt="xs">
-                {exp.startDate} - {exp.endDate}
+                {exp.imageSrc} - {exp.imageSrc}
               </Text>
             </Card.Section>
           </Card>

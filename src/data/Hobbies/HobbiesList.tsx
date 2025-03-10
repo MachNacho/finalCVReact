@@ -3,19 +3,11 @@
   This component allows for fetching and displaying of json file to fill details such as hobbies, experince .... Without the need to edit the react files  
   */
 }
-import {
-  ActionIcon,
-  Badge,
-  Button,
-  Card,
-  Grid,
-  Group,
-  Image,
-  Text,
-} from "@mantine/core";
+import { Card, Grid, Group, Image, Text } from "@mantine/core";
 import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
-import data from "./Hobbies.json";
+import { Hobby } from "../../Interfaces/Hobby";
+import { useFetch } from "@mantine/hooks";
 
 //Interface to validate JSON objects
 interface Hobbies {
@@ -26,12 +18,13 @@ interface Hobbies {
 
 // function to return each object in JSON with formating to display on page
 const HobbiesList: React.FC = () => {
-  const hobbies: Hobbies[] = data; // adds JSON file to array
-
+  const { data, loading, error } = useFetch<Hobby[]>(
+    "https://localhost:7186/api/hobby"
+  );
   return (
     <Grid justify="center" align="flex-start">
-      {hobbies.map((hob, index) => (
-        <Grid.Col span={5}>
+      {data?.map((hob, index) => (
+        <Grid.Col span={5} key={hob.id}>
           <Card
             withBorder
             radius="md"
@@ -40,7 +33,7 @@ const HobbiesList: React.FC = () => {
             key={index}
           >
             <Card.Section>
-              <Image src={hob.image_src} alt={hob.title} height={180} />
+              <Image src={hob.imageSrc} alt={hob.title} height={180} />
             </Card.Section>
 
             <Card.Section className={classes.section} mt="md">
