@@ -8,19 +8,11 @@ import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import { Hobby } from "../../Interfaces/Hobby";
 import { useFetch } from "@mantine/hooks";
-
-//Interface to validate JSON objects
-interface Hobbies {
-  title: string;
-  description: string;
-  image_src: string;
-}
+import { GetAllHobbies } from "../../endPoints/endPointList";
 
 // function to return each object in JSON with formating to display on page
 const HobbiesList: React.FC = () => {
-  const { data, loading, error } = useFetch<Hobby[]>(
-    "https://localhost:7186/api/hobby"
-  );
+  const { data, loading, error } = useFetch<Hobby[]>(GetAllHobbies);
   return (
     <Grid justify="center" align="flex-start">
       {data?.map((hob, index) => (

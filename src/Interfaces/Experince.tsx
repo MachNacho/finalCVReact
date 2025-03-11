@@ -1,9 +1,26 @@
 export interface Experience {
   ID: number;
-  Role: string;
-  Organisation: string;
-  StartDate: string;
-  EndDate: string;
-  Experiences: string[];
-  ImageSrc: string;
+  role: string;
+  company: string;
+  startDate: Date;
+  endDate?: Date | null;
+  isCurrent: boolean;
+  imageSrc: string;
 }
+export const createExperienceModel = (
+  ID: number,
+  role: string,
+  company: string,
+  startDate: Date,
+  endDate: Date | null,
+  isCurrent: boolean,
+  imageSrc: string
+): Experience => ({
+  ID,
+  role,
+  company,
+  startDate,
+  endDate,
+  isCurrent,
+  imageSrc,
+});
