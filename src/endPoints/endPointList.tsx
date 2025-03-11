@@ -1,4 +1,4 @@
-const Port = "44344";
+const Port = "7186";
 
 // User
 export const LoginEndpoint = `https://localhost:${Port}/api/user/login`;

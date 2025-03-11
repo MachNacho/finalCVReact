@@ -17,25 +17,15 @@ import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import React from "react";
 import data from "./Edu.json";
+import { GetAllEducation } from "../../endPoints/endPointList";
+import { Education } from "../../Interfaces/Education";
+import { useFetch } from "@mantine/hooks";
 
-//Interface to validate JSON objects
-interface Education {
-  degree: string;
-  institution: string;
-  startDate: string;
-  endDate: string;
-  grade: string;
-  details: string[];
-  imageSrc: string;
-}
-
-// function to return each object in JSON with formating to display on page
 const EducationList: React.FC = () => {
-  const education: Education[] = data;
-
+  const { data, loading, error } = useFetch<Education[]>(GetAllEducation);
   return (
     <Grid>
-      {education.map((edu, index) => (
+      {data?.map((edu, index) => (
         <Grid.Col span={3}>
           <Card
             withBorder
@@ -56,14 +46,14 @@ const EducationList: React.FC = () => {
             <Card.Section className={classes.section} mt="md">
               <Group justify="apart">
                 <Text fz="lg" fw={500}>
-                  {edu.degree}
+                  {edu.educationLevel}
                 </Text>
               </Group>
               <Text fz="lg" fw={500}>
                 {edu.institution}
               </Text>
               <Text fz="sm" mt="xs">
-                {edu.details}
+                {edu.description}
               </Text>
             </Card.Section>
             <Card.Section className={classes.section}>

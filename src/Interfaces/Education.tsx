@@ -1,27 +1,30 @@
 export interface Education {
-  degree: string;
+  id: number;
+  title: string;
+  educationLevel: string;
   institution: string;
   startDate: string;
   endDate: string;
-  grade: string;
-  details: string[];
+  description: string;
   imageSrc: string;
 }
 
 export const createEducationModel = (
-  degree: string,
+  id: number,
+  title: string,
+  educationLevel: string,
   institution: string,
   startDate: string,
   endDate: string,
-  grade: string,
-  details: string[],
+  description: string,
   imageSrc: string
 ): Education => ({
-  degree,
+  id,
+  title,
+  educationLevel,
   institution,
   startDate,
   endDate,
-  grade,
-  details,
+  description,
   imageSrc,
 });

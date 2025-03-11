@@ -48,7 +48,7 @@ const ExperienceList: React.FC = () => {
             </Card.Section>
             <Card.Section className={classes.section}>
               <Text fz="sm" mt="xs">
-                {exp.startDate} - {exp.endDate}
+                {exp.startDate?.getDate()} - {exp.endDate?.getDate()}
               </Text>
             </Card.Section>
           </Card>

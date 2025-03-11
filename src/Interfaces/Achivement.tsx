@@ -1,14 +1,17 @@
 export interface Achievement {
-  name: string;
-  dateAcquired: string;
-  location: string;
+  id: number;
+  title: string;
+  date: string;
+  description: string;
 }
 export const createAchvievementModel = (
-  name: string,
-  dateAcquired: string,
-  location: string
+  id: number,
+  title: string,
+  date: string,
+  description: string,
 ): Achievement => ({
-  name,
-  dateAcquired,
-  location,
+  id,
+  title,
+  date,
+  description
 });

@@ -17,22 +17,17 @@ import classes from "../../Components/CardBadge/BadgeCard.module.css";
 //Imports the json file
 import React from "react";
 import data from "./ACH.json";
-
-//Interface to validate JSON objects
-interface Achievement {
-  name: string;
-  dateAcquired: string;
-  location: string;
-}
+import { GetAllAchievements } from "../../endPoints/endPointList";
+import { useFetch } from "@mantine/hooks";
+import { Achievement } from "../../Interfaces/Achivement";
 
 // function to return each object in JSON with formating to display on page
 const AchivementsList: React.FC = () => {
-  const achievments: Achievement[] = data;
-
+  const { data, loading, error } = useFetch<Achievement[]>(GetAllAchievements);
   return (
     <Grid>
-        {achievments.map((ach, index) => (
-          <Grid.Col span={3}>
+      {data?.map((ach, index) => (
+        <Grid.Col span={3} key={ach.id}>
           <Card
             withBorder
             radius="md"
@@ -41,25 +36,25 @@ const AchivementsList: React.FC = () => {
             key={index}
           >
             <Card.Section className={classes.section}>
-            <Text fz="lg" fw={500}>
-                  {ach.name}
-                </Text>
+              <Text fz="lg" fw={500}>
+                {ach.title}
+              </Text>
             </Card.Section>
             <Card.Section className={classes.section} mt="md">
               <Group justify="apart">
                 <Text fz="lg" fw={500}>
-                  {ach.location}
+                  {ach.description}
                 </Text>
               </Group>
             </Card.Section>
             <Card.Section className={classes.section}>
               <Text fz="sm" mt="xs">
-                {ach.dateAcquired}
+                {ach.date}
               </Text>
             </Card.Section>
           </Card>
         </Grid.Col>
-        ))}
+      ))}
     </Grid>
   );
 };

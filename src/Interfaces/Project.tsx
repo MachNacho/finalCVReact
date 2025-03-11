@@ -1,24 +1,27 @@
 export interface Project {
-  name: string;
-  link: string;
-  date: string;
-  picture: string;
+  id: number;
+  title: string;
   description: string;
+  projectDate: string; // or Date if you'd like to store it as a Date object
+  link: string;
+  hasPublicLink: boolean;
   tags: string[];
 }
 
 export const createProjectModel = (
-  name: string,
-  link: string,
-  date: string,
-  picture: string,
+  id: number,
+  title: string,
   description: string,
+  projectDate: string, // or Date if you'd like to store it as a Date object
+  link: string,
+  hasPublicLink: boolean,
   tags: string[]
 ): Project => ({
-  name,
+  id,
+  title,
   link,
-  date,
-  picture,
+  projectDate,
+  hasPublicLink,
   description,
   tags,
 });
